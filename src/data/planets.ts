@@ -1,0 +1,238 @@
+export interface PlanetData {
+  id: string;
+  name: string;
+  english: string;
+  kind: string;
+  description: string;
+  facts: [string, string];
+  diameter: string;
+  distance: string;
+  day: string;
+  year: string;
+  radius: number;
+  orbit: number;
+  angle: number;
+  color: string;
+  texture: string;
+  tilt: number;
+  rotation: number;
+  camera: { full: number; close: number };
+}
+const texture = (name: string) => `/textures/2k_${name}.jpg`;
+export const planets: PlanetData[] = [
+  {
+    id: "sun",
+    name: "Солнце",
+    english: "Sun",
+    kind: "НАША ЗВЕЗДА",
+    description: "Звезда, с которой начинается всё.",
+    facts: [
+      "Солнце содержит около 99,8% массы всей Солнечной системы.",
+      "Свет преодолевает расстояние от Солнца до Земли примерно за 8 минут 20 секунд.",
+    ],
+    diameter: "≈ 1,39 млн км",
+    distance: "—",
+    day: "≈ 27 земных суток¹",
+    year: "—",
+    radius: 3.5,
+    orbit: 0,
+    angle: 0,
+    color: "#f5c184",
+    texture: texture("sun"),
+    tilt: 7.25,
+    rotation: 0.025,
+    camera: { full: 4.4, close: 2.1 },
+  },
+  {
+    id: "mercury",
+    name: "Меркурий",
+    english: "Mercury",
+    kind: "ПЛАНЕТА ЗЕМНОЙ ГРУППЫ",
+    description: "Маленький мир рядом с гигантской звездой.",
+    facts: [
+      "Год на Меркурии длится всего 88 земных суток.",
+      "От одного восхода Солнца до следующего на Меркурии проходит около 176 земных суток.",
+    ],
+    diameter: "4 879 км",
+    distance: "57,9 млн км",
+    day: "176 земных суток",
+    year: "88 земных суток",
+    radius: 0.45,
+    orbit: 6,
+    angle: 0.4,
+    color: "#b5a393",
+    texture: texture("mercury"),
+    tilt: 0.03,
+    rotation: 0.035,
+    camera: { full: 4.3, close: 2.05 },
+  },
+  {
+    id: "venus",
+    name: "Венера",
+    english: "Venus",
+    kind: "ПЛАНЕТА ЗЕМНОЙ ГРУППЫ",
+    description: "Мир, скрытый за золотой завесой облаков.",
+    facts: [
+      "Средняя температура поверхности Венеры составляет около 464 °C — выше, чем у любой другой планеты.",
+      "Венера вращается в направлении, противоположном большинству планет Солнечной системы.",
+    ],
+    diameter: "12 104 км",
+    distance: "108,2 млн км",
+    day: "116,8 земных суток",
+    year: "224,7 земных суток",
+    radius: 0.8,
+    orbit: 9,
+    angle: 2.1,
+    color: "#d6b687",
+    texture: texture("venus_atmosphere"),
+    tilt: 177.4,
+    rotation: 0.018,
+    camera: { full: 4.3, close: 2.05 },
+  },
+  {
+    id: "earth",
+    name: "Земля",
+    english: "Earth",
+    kind: "ПЛАНЕТА ЗЕМНОЙ ГРУППЫ",
+    description: "Наш дом среди миллиардов звёзд.",
+    facts: [
+      "Около 71% поверхности Земли покрыто водой. Её океаны — основа жизни, какой мы её знаем.",
+      "Земля — единственная известная планета, на которой достоверно обнаружена жизнь.",
+    ],
+    diameter: "12 756 км",
+    distance: "149,6 млн км",
+    day: "24 часа",
+    year: "365,2 суток",
+    radius: 0.85,
+    orbit: 12,
+    angle: 0.95,
+    color: "#a8c8ff",
+    texture: texture("earth_daymap"),
+    tilt: 23.4,
+    rotation: 0.045,
+    camera: { full: 4.3, close: 2.05 },
+  },
+  {
+    id: "mars",
+    name: "Марс",
+    english: "Mars",
+    kind: "ПЛАНЕТА ЗЕМНОЙ ГРУППЫ",
+    description: "Красный мир. Следы воды. Новые горизонты.",
+    facts: [
+      "Олимп на Марсе — крупнейший известный вулкан Солнечной системы. Его высота — около 22 км.",
+      "Один солнечный день на Марсе длится примерно 24 часа 40 минут — лишь немного дольше земного.",
+    ],
+    diameter: "6 792 км",
+    distance: "228 млн км",
+    day: "24 ч 40 мин",
+    year: "687 земных суток",
+    radius: 0.6,
+    orbit: 15,
+    angle: 3.45,
+    color: "#cf8d72",
+    texture: texture("mars"),
+    tilt: 25.2,
+    rotation: 0.04,
+    camera: { full: 4.3, close: 2.05 },
+  },
+  {
+    id: "jupiter",
+    name: "Юпитер",
+    english: "Jupiter",
+    kind: "ГАЗОВЫЙ ГИГАНТ",
+    description: "Целая вселенная за облачными полосами.",
+    facts: [
+      "Большое Красное Пятно — огромный атмосферный вихрь, который наблюдают уже столетиями.",
+      "Юпитер вращается быстрее всех планет: один оборот вокруг оси занимает около 10 часов.",
+    ],
+    diameter: "142 984 км",
+    distance: "778,5 млн км",
+    day: "9 ч 56 мин",
+    year: "11,86 земных лет",
+    radius: 2,
+    orbit: 21,
+    angle: 5.6,
+    color: "#d0b293",
+    texture: texture("jupiter"),
+    tilt: 3.1,
+    rotation: 0.065,
+    camera: { full: 4.5, close: 2.1 },
+  },
+  {
+    id: "saturn",
+    name: "Сатурн",
+    english: "Saturn",
+    kind: "ГАЗОВЫЙ ГИГАНТ",
+    description: "Тихая симфония льда и света.",
+    facts: [
+      "Кольца Сатурна состоят преимущественно из частиц водяного льда — от пылинок до крупных глыб.",
+      "Средняя плотность Сатурна меньше плотности воды: около 687 кг/м³.",
+    ],
+    diameter: "120 536 км",
+    distance: "1 432 млн км",
+    day: "≈ 10 ч 42 мин",
+    year: "29,45 земных лет",
+    radius: 1.65,
+    orbit: 28,
+    angle: 2.7,
+    color: "#d7c7a2",
+    texture: texture("saturn"),
+    tilt: 26.7,
+    rotation: 0.055,
+    camera: { full: 6.4, close: 2.5 },
+  },
+  {
+    id: "uranus",
+    name: "Уран",
+    english: "Uranus",
+    kind: "ЛЕДЯНОЙ ГИГАНТ",
+    description: "Мир, который выбрал собственную ось.",
+    facts: [
+      "Ось вращения Урана наклонена почти на 98°: планета словно катится по своей орбите на боку.",
+      "Метан в атмосфере поглощает красный свет, придавая Урану голубовато-зелёный оттенок.",
+    ],
+    diameter: "51 118 км",
+    distance: "2 867 млн км",
+    day: "≈ 17 ч 12 мин",
+    year: "≈ 84 земных года",
+    radius: 1.1,
+    orbit: 35,
+    angle: 4.2,
+    color: "#a7d4d9",
+    texture: texture("uranus"),
+    tilt: 97.8,
+    rotation: 0.04,
+    camera: { full: 4.3, close: 2.05 },
+  },
+  {
+    id: "neptune",
+    name: "Нептун",
+    english: "Neptune",
+    kind: "ЛЕДЯНОЙ ГИГАНТ",
+    description: "На краю знакомого. В царстве ледяных ветров.",
+    facts: [
+      "В атмосфере Нептуна наблюдались ветры со скоростью более 2 000 км/ч.",
+      "Один год на Нептуне длится почти 165 земных лет. С момента открытия в 1846 году он завершил первый оборот лишь в 2011-м.",
+    ],
+    diameter: "49 528 км",
+    distance: "4 515 млн км",
+    day: "≈ 16 ч 6 мин",
+    year: "≈ 165 земных лет",
+    radius: 1.05,
+    orbit: 42,
+    angle: 0.2,
+    color: "#7297ed",
+    texture: texture("neptune"),
+    tilt: 28.3,
+    rotation: 0.045,
+    camera: { full: 4.3, close: 2.05 },
+  },
+];
+export function positionOf(p: PlanetData): [number, number, number] {
+  return [Math.cos(p.angle) * p.orbit, 0, Math.sin(p.angle) * p.orbit];
+}
+export const extraTextures = [
+  "/textures/2k_earth_nightmap.jpg",
+  "/textures/2k_earth_clouds.jpg",
+  "/textures/2k_saturn_ring_alpha.png",
+];

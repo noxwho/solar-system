@@ -1,0 +1,1049 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap");
+@import "tailwindcss";
+@theme {
+  --color-space: #030509;
+  --color-accent: #a8c8ff;
+}
+:root {
+  font-family: Manrope, Arial, sans-serif;
+  color: #f5f7fa;
+  background: #030509;
+  color-scheme: dark;
+  font-synthesis: none;
+  font-weight: 400;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+button,
+a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    color 0.25s;
+}
+button:disabled {
+  opacity: 0.22;
+  cursor: default;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #a8c8ff;
+  outline-offset: 5px;
+}
+a {
+  color: #b8cee9;
+  text-underline-offset: 4px;
+}
+.camera-experience {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+.scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(#03050940, transparent 17%, transparent 79%, #03050977),
+    linear-gradient(90deg, #03050922, transparent 45%, #03050977 90%);
+}
+.topbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 31px 4%;
+  z-index: 12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+.brand > span {
+  font:
+    500 17px "Space Grotesk",
+    Arial,
+    sans-serif;
+  letter-spacing: 5px;
+}
+.brand small {
+  display: block;
+  font:
+    500 6px Manrope,
+    Arial,
+    sans-serif;
+  letter-spacing: 2px;
+  color: #768ba7;
+  margin-top: 6px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+.edition {
+  font-size: 7px;
+  color: #6c829e;
+  letter-spacing: 1.7px;
+}
+.menu-button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  padding: 12px 0 12px 16px;
+}
+.menu-button:hover,
+.brand:hover {
+  color: #b0cdff;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font:
+    500 8px/1.8 Manrope,
+    Arial,
+    sans-serif;
+  letter-spacing: 1.8px;
+  color: #8ea8c9;
+}
+.live-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #a8c8ff;
+  box-shadow: 0 0 9px #a8c8ff66;
+  flex-shrink: 0;
+}
+.overview-copy {
+  position: absolute;
+  left: 7%;
+  top: 21%;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.overview-copy h1 {
+  font:
+    300 clamp(43px, 5.6vw, 84px)/1.04 "Space Grotesk",
+    Arial,
+    sans-serif;
+  letter-spacing: -3px;
+  margin: 25px 0 24px;
+}
+.overview-copy h1 span {
+  color: #a4b8d1;
+}
+.overview-copy > p {
+  font:
+    300 18px/1.65 Manrope,
+    Arial,
+    sans-serif;
+  color: #9eafc5;
+  margin: 0;
+}
+.overview-copy em {
+  font:
+    italic 25px "Cormorant Garamond",
+    Georgia,
+    serif;
+  color: #c3cedc;
+}
+.overview-instruction {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #6982a3;
+  font-size: 7px;
+  letter-spacing: 1.3px;
+  margin-top: 35px;
+}
+.tiny-rule {
+  width: 26px;
+  height: 1px;
+  background: #536e92;
+}
+.planet-copy {
+  position: absolute;
+  left: 63.5%;
+  right: 9%;
+  top: 23%;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+}
+.planet-copy [data-reveal] {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+.planet-copy > .eyebrow {
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+.info-coordinate {
+  margin-left: auto;
+  color: #607b9f;
+  font-size: 7px;
+}
+.planet-heading {
+  margin-top: 25px;
+}
+.planet-heading > span {
+  display: block;
+  font:
+    300 clamp(39px, 4.4vw, 70px)/1.05 "Space Grotesk",
+    Arial,
+    sans-serif;
+  letter-spacing: -2px;
+}
+.planet-heading h1 {
+  font:
+    400 17px/1.4 Manrope,
+    Arial,
+    sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 13px 0 24px;
+  color: #8da5c4;
+}
+.atmospheric {
+  font:
+    italic 26px/1.35 "Cormorant Garamond",
+    Georgia,
+    serif;
+  color: #c0ccdd;
+  margin: 0 0 24px;
+}
+.science-description,
+.planet-narrative > p:not(.atmospheric) {
+  font:
+    400 12px/1.95 Manrope,
+    Arial,
+    sans-serif;
+  color: #9aaec9;
+  margin: 0;
+}
+.planet-narrative h2 {
+  font:
+    italic 29px/1.3 "Cormorant Garamond",
+    Georgia,
+    serif;
+  color: #c9d6e8;
+  margin: 0 0 20px;
+}
+.planet-details {
+  border-top: 1px solid #8ea8ce2b;
+  padding-top: 21px;
+  margin-top: 26px;
+}
+.planet-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 21px 14px;
+  margin: 0;
+}
+.planet-stats > div:last-child {
+  grid-column: 1/-1;
+}
+.planet-stats dt {
+  font-size: 6px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  color: #627fa5;
+  margin-bottom: 8px;
+}
+.planet-stats dd {
+  font:
+    400 12px Manrope,
+    Arial,
+    sans-serif;
+  color: #c4d3e8;
+  margin: 0;
+}
+.extra-feature > span {
+  font-size: 6px;
+  letter-spacing: 1.6px;
+  color: #6482a9;
+}
+.extra-feature > p {
+  font-size: 11px;
+  line-height: 1.85;
+  color: #839dbc;
+  margin: 12px 0 0;
+}
+.side-arrow {
+  position: absolute;
+  z-index: 10;
+  top: 47%;
+  width: 49px;
+  min-height: 62px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #9ab5d638;
+  border-radius: 3px;
+  background: #0a0e164d;
+  backdrop-filter: blur(8px);
+  color: #c1d3ec;
+}
+.side-arrow:hover:not(:disabled) {
+  background: #a8c8ff18;
+  border-color: #a8c8ff88;
+  color: #fff;
+}
+.side-arrow.previous {
+  left: 2.5%;
+}
+.side-arrow.next {
+  right: 2.5%;
+}
+.side-arrow span {
+  font-size: 5px;
+  letter-spacing: 1px;
+  color: #7894b8;
+}
+.journey-footer {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 48px;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid #8aa6cc2b;
+  padding-top: 21px;
+  pointer-events: none;
+}
+.current-world {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 215px;
+}
+.current-world > .live-dot {
+  margin-top: 4px;
+}
+.current-world > span:last-child {
+  font-size: 6px;
+  letter-spacing: 1.4px;
+  color: #6f89ad;
+}
+.current-world strong {
+  display: block;
+  font:
+    400 12px Manrope,
+    Arial,
+    sans-serif;
+  letter-spacing: 0.2px;
+  color: #c4d3e7;
+  margin-top: 8px;
+}
+.stage-indicator {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: #4c6486;
+}
+.stage-indicator > span {
+  transition: color 0.6s;
+}
+.stage-indicator > span.active {
+  color: #b0c8e9;
+}
+.stage-indicator small {
+  font-size: 6px;
+  margin-left: 5px;
+}
+.stage-indicator i {
+  width: 19px;
+  height: 1px;
+  background: #46648b55;
+}
+.footer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  min-width: 215px;
+  pointer-events: auto;
+}
+.icon-button {
+  height: 36px;
+  width: 36px;
+  flex-shrink: 0;
+  border: 1px solid #87a6cf3d;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0e1644;
+  backdrop-filter: blur(6px);
+  font-size: 12px;
+  color: #9fb9dc;
+}
+.icon-button:hover {
+  border-color: #a8c8ff90;
+  color: white;
+  background: #a8c8ff15;
+}
+.journey-progress {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+.journey-progress i {
+  display: block;
+  width: 100%;
+  height: 1px;
+  transform-origin: left;
+  background: #a8c8ff90;
+  transition: transform 0.8s ease;
+}
+.scale-note {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 22px;
+  z-index: 9;
+  display: flex;
+  justify-content: space-between;
+  font-size: 5px;
+  letter-spacing: 1px;
+  color: #4f6a8c;
+  pointer-events: none;
+}
+.world-label {
+  font:
+    500 8px Manrope,
+    Arial,
+    sans-serif;
+  letter-spacing: 0.7px;
+  color: #91a9c9;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px #030509;
+  transition: color 0.3s;
+}
+.world-label.hovered {
+  color: #fff;
+}
+.menu-backdrop,
+.help-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  background: #02050bb8;
+  backdrop-filter: blur(15px);
+}
+.planet-menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: min(500px, 100%);
+  padding: 25px 38px;
+  background: #080d15f5;
+  border-left: 1px solid #a8c8ff20;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.menu-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu-heading .eyebrow {
+  font-size: 7px;
+}
+.planet-menu h2,
+.help-panel h2 {
+  font:
+    300 32px/1.15 "Space Grotesk",
+    Manrope,
+    Arial,
+    sans-serif;
+  letter-spacing: -1px;
+  margin: 24px 0;
+}
+.planet-menu h2 em,
+.help-panel h2 em {
+  font:
+    italic 37px "Cormorant Garamond",
+    Georgia,
+    serif;
+  color: #9caec6;
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+}
+.menu-list > button {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  padding: 12px 5px;
+  text-align: left;
+  border-bottom: 1px solid #9eb0cc17;
+}
+.menu-list > button:hover,
+.menu-list > button.selected {
+  background: #a8c8ff09;
+}
+.menu-number {
+  font-size: 8px;
+  color: #536780;
+}
+.menu-list img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: brightness(0.7);
+}
+.menu-list > button > span:nth-last-child(2) {
+  flex: 1;
+  font-size: 12px;
+}
+.menu-list small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  color: #61748f;
+}
+.menu-list svg {
+  color: #7187a5;
+}
+.menu-note {
+  font:
+    italic 17px "Cormorant Garamond",
+    Georgia,
+    serif;
+  color: #7e8da3;
+  margin-top: 25px;
+}
+.help-backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+}
+.help-panel {
+  position: relative;
+  width: 500px;
+  max-height: 90svh;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 40px;
+  background: #0a101b;
+  border: 1px solid #a8c8ff24;
+  border-radius: 4px;
+}
+.help-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.help-panel > .eyebrow {
+  font-size: 7px;
+  margin-top: 24px;
+}
+.help-panel p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #8f9fb6;
+}
+.credits {
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid #a8c8ff20;
+}
+.credits p {
+  font-size: 9px;
+  line-height: 1.8;
+  color: #687d9c;
+}
+.loading {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  text-align: center;
+  background: #030509ee;
+  padding: 28px 15px;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+.loading-track {
+  height: 1px;
+  background: #293241;
+  margin: 20px 0 10px;
+}
+.loading-track i {
+  display: block;
+  height: 1px;
+  background: #a8c8ff;
+  transition: width 0.3s;
+}
+.loading small {
+  color: #8993a4;
+}
+.webgl-error {
+  position: absolute;
+  z-index: 25;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(450px, 90%);
+  padding: 35px;
+  background: #0a0e16;
+  text-align: center;
+}
+.webgl-error h2 {
+  font-size: 23px;
+  font-weight: 400;
+}
+.webgl-error p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #8993a4;
+}
+.outlined-button {
+  border: 1px solid #a8c8ff55;
+  padding: 15px 22px;
+  font-size: 11px;
+  margin-top: 15px;
+}
+@media (min-width: 1600px) {
+  .planet-copy {
+    left: 65%;
+    right: 10%;
+    top: 25%;
+  }
+  .planet-heading > span {
+    font-size: 76px;
+  }
+  .science-description {
+    font-size: 14px;
+  }
+  .atmospheric {
+    font-size: 29px;
+  }
+}
+@media (max-width: 1100px) {
+  .edition {
+    display: none;
+  }
+  .planet-copy {
+    left: 61%;
+    right: 9%;
+  }
+  .planet-heading > span {
+    font-size: 46px;
+  }
+  .science-description {
+    font-size: 11px;
+  }
+  .atmospheric {
+    font-size: 23px;
+  }
+  .stage-indicator {
+    gap: 9px;
+  }
+  .stage-indicator small {
+    display: none;
+  }
+  .current-world,
+  .footer-actions {
+    min-width: 155px;
+  }
+}
+@media (max-height: 800px) and (min-width: 761px) {
+  .planet-copy {
+    top: 21%;
+  }
+  .planet-heading {
+    margin-top: 20px;
+  }
+  .planet-heading > span {
+    font-size: 52px;
+  }
+  .planet-heading h1 {
+    font-size: 14px;
+    margin: 10px 0 19px;
+  }
+  .science-description {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .atmospheric {
+    font-size: 23px;
+    margin-bottom: 18px;
+  }
+  .planet-details {
+    margin-top: 20px;
+    padding-top: 17px;
+  }
+  .planet-stats {
+    gap: 16px;
+  }
+  .planet-narrative h2 {
+    font-size: 26px;
+  }
+  .extra-feature > p {
+    font-size: 10px;
+  }
+}
+@media (max-width: 760px), (orientation: portrait) and (max-width: 1100px) {
+  .topbar {
+    padding: 22px 6%;
+  }
+  .brand {
+    gap: 9px;
+  }
+  .brand > span {
+    font-size: 15px;
+    letter-spacing: 3.7px;
+  }
+  .brand small {
+    font-size: 5px;
+    letter-spacing: 1.2px;
+  }
+  .brand svg {
+    width: 22px;
+  }
+  .menu-button {
+    font-size: 7px;
+    gap: 12px;
+  }
+  .overview-copy {
+    left: 8%;
+    right: 8%;
+    top: 16%;
+  }
+  .overview-copy > .eyebrow {
+    font-size: 6px;
+    letter-spacing: 1.3px;
+  }
+  .overview-copy h1 {
+    font-size: 46px;
+    letter-spacing: -2px;
+    margin: 19px 0 16px;
+  }
+  .overview-copy > p {
+    font-size: 13px;
+  }
+  .overview-copy em {
+    font-size: 21px;
+  }
+  .overview-instruction {
+    font-size: 5px;
+    letter-spacing: 0.7px;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  .tiny-rule {
+    width: 17px;
+  }
+  .planet-copy {
+    left: 7%;
+    right: 7%;
+    top: 51%;
+  }
+  .planet-copy > .eyebrow {
+    font-size: 6px;
+    letter-spacing: 0.7px;
+    gap: 8px;
+  }
+  .planet-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .planet-heading > span {
+    font-size: 35px;
+    letter-spacing: -1px;
+  }
+  .planet-heading h1 {
+    font-size: 11px;
+    letter-spacing: 1.3px;
+    margin: 0;
+  }
+  .atmospheric {
+    font-size: 21px;
+    margin: 11px 0 13px;
+    line-height: 1.25;
+  }
+  .science-description,
+  .planet-narrative > p:not(.atmospheric) {
+    font-size: 11px;
+    line-height: 1.8;
+    margin: 0;
+  }
+  .planet-narrative h2 {
+    font-size: 25px;
+    margin: 12px 0 14px;
+  }
+  .planet-details {
+    padding-top: 13px;
+    margin-top: 17px;
+  }
+  .planet-stats {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .planet-stats > div:last-child {
+    grid-column: auto;
+  }
+  .planet-stats dt {
+    font-size: 5px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .planet-stats dd {
+    font-size: 9px;
+    line-height: 1.4;
+  }
+  .extra-feature > span {
+    font-size: 5px;
+    letter-spacing: 1px;
+  }
+  .extra-feature > p {
+    font-size: 10px;
+    line-height: 1.7;
+    margin-top: 8px;
+  }
+  .side-arrow {
+    width: 44px;
+    min-height: 49px;
+    top: 38%;
+    gap: 6px;
+  }
+  .side-arrow.previous {
+    left: 3%;
+  }
+  .side-arrow.next {
+    right: 3%;
+  }
+  .side-arrow span {
+    font-size: 5px;
+    letter-spacing: 0.5px;
+  }
+  .side-arrow svg {
+    width: 19px;
+  }
+  .journey-footer {
+    left: 6%;
+    right: 6%;
+    bottom: 38px;
+    padding-top: 15px;
+    gap: 10px;
+  }
+  .current-world {
+    min-width: 0;
+    flex: 1;
+    gap: 8px;
+  }
+  .current-world > span:last-child {
+    font-size: 5px;
+    letter-spacing: 0.7px;
+  }
+  .current-world strong {
+    font-size: 11px;
+    margin-top: 6px;
+  }
+  .footer-actions {
+    min-width: 0;
+    gap: 9px;
+  }
+  .icon-button {
+    width: 34px;
+    height: 34px;
+  }
+  .stage-indicator {
+    position: absolute;
+    left: 50%;
+    top: -28px;
+    transform: translateX(-50%);
+    font-size: 6px;
+    gap: 9px;
+    white-space: nowrap;
+  }
+  .stage-indicator i {
+    width: 13px;
+  }
+  .stage-indicator small {
+    display: none;
+  }
+  .scale-note {
+    left: 6%;
+    right: 6%;
+    bottom: 16px;
+    font-size: 4px;
+    letter-spacing: 0.7px;
+    justify-content: center;
+  }
+  .scale-note > span:last-child {
+    display: none;
+  }
+  .world-label {
+    font-size: 7px;
+    letter-spacing: 0;
+  }
+  .planet-menu {
+    padding: 24px;
+  }
+  .planet-menu h2 {
+    font-size: 29px;
+  }
+  .planet-menu h2 em {
+    font-size: 34px;
+  }
+  .menu-list > button {
+    padding: 10px 3px;
+  }
+  .help-panel {
+    padding: 30px 25px;
+  }
+  .help-panel h2 {
+    font-size: 29px;
+  }
+  .help-panel h2 em {
+    font-size: 34px;
+  }
+}
+@media (max-width: 760px) and (max-height: 760px) {
+  .overview-copy {
+    top: 15%;
+  }
+  .overview-copy h1 {
+    font-size: 38px;
+    margin: 15px 0;
+  }
+  .overview-copy > p {
+    font-size: 11px;
+  }
+  .overview-copy em {
+    font-size: 19px;
+  }
+  .planet-copy {
+    top: 49%;
+  }
+  .planet-copy > .eyebrow {
+    display: none;
+  }
+  .planet-heading {
+    margin: 0;
+  }
+  .planet-heading > span {
+    font-size: 29px;
+  }
+  .planet-heading h1 {
+    font-size: 9px;
+  }
+  .atmospheric {
+    font-size: 18px;
+    margin: 9px 0 11px;
+  }
+  .science-description,
+  .planet-narrative > p:not(.atmospheric) {
+    font-size: 10px;
+    line-height: 1.7;
+  }
+  .planet-narrative h2 {
+    font-size: 22px;
+    margin: 10px 0 12px;
+  }
+  .planet-details {
+    padding-top: 10px;
+    margin-top: 12px;
+  }
+  .planet-stats dd {
+    font-size: 8px;
+  }
+  .extra-feature > p {
+    font-size: 9px;
+    line-height: 1.65;
+  }
+  .side-arrow {
+    top: 36%;
+    min-height: 46px;
+  }
+  .journey-footer {
+    bottom: 31px;
+    padding-top: 12px;
+  }
+  .stage-indicator {
+    top: -25px;
+  }
+  .scale-note {
+    bottom: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+@media (max-width: 760px), (orientation: portrait) and (max-width: 1100px) {
+  .planet-copy {
+    top: 53%;
+  }
+}
+@media (max-width: 760px) and (max-height: 760px) {
+  .planet-copy {
+    top: 49%;
+  }
+}
+
+/* Close-up camera compositions with the body on the right keep copy on the left.
+   Portrait composition continues to use the existing lower information block. */
+@media (min-width: 760px) and (min-aspect-ratio: 11/10) {
+  .planet-copy[data-side="left"] {
+    left: 9%;
+    right: 63.5%;
+  }
+}
