@@ -18,7 +18,8 @@ export interface PlanetData {
   rotation: number;
   camera: { full: number; close: number };
 }
-const texture = (name: string) => `/textures/2k_${name}.jpg`;
+const texture = (name: string) =>
+  `${import.meta.env.BASE_URL}textures/2k_${name}.jpg`;
 export const planets: PlanetData[] = [
   {
     id: "sun",
@@ -232,7 +233,7 @@ export function positionOf(p: PlanetData): [number, number, number] {
   return [Math.cos(p.angle) * p.orbit, 0, Math.sin(p.angle) * p.orbit];
 }
 export const extraTextures = [
-  "/textures/2k_earth_nightmap.jpg",
-  "/textures/2k_earth_clouds.jpg",
-  "/textures/2k_saturn_ring_alpha.png",
+  `${import.meta.env.BASE_URL}textures/2k_earth_nightmap.jpg`,
+  `${import.meta.env.BASE_URL}textures/2k_earth_clouds.jpg`,
+  `${import.meta.env.BASE_URL}textures/2k_saturn_ring_alpha.png`,
 ];

@@ -9,7 +9,8 @@ import {
   earthNight,
   earthClouds,
   earthNormal,
-  earthSpecular,
+    earthSpecular,
+    textureUrl,
 } from "./textureQuality";
 const vertex = `varying vec2 vUv;varying vec3 vNormal;varying vec3 vWorld;void main(){vUv=uv;vNormal=normalize(mat3(modelMatrix)*normal);vec4 world=modelMatrix*vec4(position,1.);vWorld=world.xyz;gl_Position=projectionMatrix*viewMatrix*world;}`;
 const earthFragment = `uniform sampler2D dayMap,nightMap,normalMap,waterMap,cloudMap;uniform float opacity,cloudOffset;varying vec2 vUv;varying vec3 vNormal,vWorld;
@@ -144,7 +145,7 @@ function Clouds({
   );
 }
 function Rings({ data }: { data: PlanetData }) {
-  const map = useTexture("/textures/2k_saturn_ring_alpha.png");
+  const map = useTexture(textureUrl("/textures/2k_saturn_ring_alpha.png"));
   const geometry = useMemo(() => {
     const g = new THREE.RingGeometry(
       data.radius * 1.25,
@@ -201,7 +202,7 @@ export default function Planet({
   onSelect: () => void;
 }) {
   const map = useTexture(planetTexture(index)),
-    ringMap = useTexture("/textures/2k_saturn_ring_alpha.png");
+    ringMap = useTexture(textureUrl("/textures/2k_saturn_ring_alpha.png"));
   const surface = useRef<THREE.Mesh>(null),
     group = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
