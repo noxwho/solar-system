@@ -2,9 +2,23 @@
 import { planets } from "../data/planets";
 
 // Automatically account for the Vite base path.
+
 export const textureUrl = (path: string): string => {
-  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+  const base = import.meta.env.BASE_URL;
+  const normalizedPath = path.replace(/^\/+/, "");
+  const normalizedBase = base.replace(/^\/+|\/+$/g, "");
+
+  if (
+    normalizedBase &&
+    (normalizedPath === normalizedBase ||
+      normalizedPath.startsWith(`${normalizedBase}/`))
+  ) {
+    return `/${normalizedPath}`;
+  }
+
+  return `${base}${normalizedPath}`;
 };
+
 
 const nav = navigator as Navigator & {
   deviceMemory?: number;
